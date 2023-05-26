@@ -37,11 +37,11 @@ def login(request):
 #        username = request.POST["username"]  
 #        password = request.POST["password"]
         if request.method == 'POST':
-            username = request.POST["username"]  
-            password = request.POST["password"]        
-#           data=request.body.json.loads()
-#           username = data['user']["username"]
-#           password = data['user']["password"]
+            #username = request.POST["username"]  
+            #password = request.POST["password"]        
+            data=request.body.json.loads()
+            username = data['user']["username"]
+            password = data['user']["password"]
             user = auth.authenticate(username = username, password =password  )
 
             if user is not None:
