@@ -18,8 +18,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 import os 
 
 # At the end of file. add these lines
-
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
+
 MEDIA_URLS ='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -87,7 +89,7 @@ WSGI_APPLICATION = 'vercel_app.wsgi.application'
 # environments like Vercel. You can use a database over HTTP, hosted elsewhere.
 
 DATABASES = {       'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'verceldb',
         'USER': 'default',
         'PASSWORD': 'CPIEMfOUK9S5',
