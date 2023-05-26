@@ -15,7 +15,17 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+import os 
 
+# At the end of file. add these lines
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+MEDIA_URLS ='/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Also Make aure To set allowed_hosts to '*'
+
+ALLOWED_HOSTS = ['.vercel.app','.now.sh']
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -76,7 +86,15 @@ WSGI_APPLICATION = 'vercel_app.wsgi.application'
 # Note: Django modules for using databases are not support in serverless
 # environments like Vercel. You can use a database over HTTP, hosted elsewhere.
 
-DATABASES = {}
+DATABASES = {       'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'verceldb',
+        'USER': 'default',
+        'PASSWORD': 'CPIEMfOUK9S5',
+        'HOST': 'ep-patient-frog-192036-pooler.us-east-1.postgres.vercel-storage.com',
+        'PORT': '5432',
+    }
+}   
 
 
 # Password validation
