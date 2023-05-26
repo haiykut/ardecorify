@@ -141,19 +141,13 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://ardecorify.vercel.app/'
-]
+CSRF_TRUSTED_ORIGINS = ['https://' + os.environ['.vercel.app']]
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:8080/", "http://127.0.0.1:8080/",'https://ardecorify.vercel.app/']
+CORS_ALLOWED_ORIGINS = ['.vercel.app/']
 
 CORS_ORIGIN_WHITELIST = (
 
-    'localhost:8080',
-    'localhost:8081',
-    'localhost',
-    'localhost:8888',
-    'https://ardecorify.vercel.app/'
+    
+    '.vercel.app/'
 )
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:8080/','https://ardecorify.vercel.app/']
