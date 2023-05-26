@@ -47,10 +47,10 @@ def login(request):
             if user is not None:
                 auth.login(request , user)
                 control=True
-                return redirect('index',{"control":control})    
+                return redirect('index')    
             else:
                 control=False
-                return redirect('login',{"control":control})
+                return redirect('login')
                 
         else:
             return render(request,'login.html')
