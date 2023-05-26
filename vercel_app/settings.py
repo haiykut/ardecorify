@@ -86,19 +86,8 @@ WSGI_APPLICATION = 'vercel_app.wsgi.application'
 DATABASES = {
 
     'default': {
-
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-        'NAME': 'myproject',
-
-        'USER': 'postgres',
-
-        'PASSWORD': 'bC35.!',
-
-        'HOST': 'localhost',
-
-        'PORT': '',
-
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
     }
 
 }
