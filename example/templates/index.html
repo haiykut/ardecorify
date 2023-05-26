@@ -1,0 +1,17 @@
+<html>
+    <body>
+        <h1>Hello from Vercel!</h1>
+        <p>The current time is  {{time|safe}}.</p>,
+      
+               {%if user.is_authenticated%}
+                <a bar="true" href="">{{user.get_username}}</a>
+                <a bar="true" href="{%url 'logout'%}">Çıkış Yap</a>
+                <p>return: True </p>
+            {%else%}
+
+                <a bar="true" class="for" href="/login" class="user"></i>Giriş Yap</a>
+                <a class="for" bar="true" href="/register">Kayıt Ol</a>
+                <p>return: False</p>
+            {%endif%}
+    </body>
+</html>
