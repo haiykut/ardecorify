@@ -68,7 +68,7 @@ urlpatterns = [
 ]
 ```
 
-This example uses the Web Server Gateway Interface (WSGI) with Django to enable handling requests on Vercel with Serverless Functions.
+This example uses the Web Server Gateway Interface (WSGI) with Django to enable handling requests on Vercel with Serverless Functions..
 
 ## Running Locally
 
