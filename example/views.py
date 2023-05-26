@@ -40,8 +40,11 @@ def login(request):
 #        password = request.POST["password"]
         if request.method == 'POST':
             #username = request.POST["username"]  
-            #password = request.POST["password"]        
-            data=json.loads(request.body)
+            #password = request.POST["password"]   
+            body_unicode = request.body.decode('utf-8')
+            body = json.loads(body_unicode)
+            
+            data=body
             username = data['user']["username"]
             password = data['user']["password"]
             user = auth.authenticate(username = username, password =password  )
