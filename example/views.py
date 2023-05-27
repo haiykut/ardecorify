@@ -8,6 +8,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User, auth
 from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 
 def index(request):
     time = datetime.now()
@@ -52,10 +53,10 @@ def login(request):
             if user is not None:
                 auth.login(request , user)
                 control=True
-                return redirect('index')    
+                return JsonResponse({'return':'True'})   
             else:
                 control=False
-                return redirect('login')
+                return JsonResponse({'return':'False'})   
                 
         else:
             return render(request,'login.html')
