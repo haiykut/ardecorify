@@ -53,10 +53,10 @@ def login(request):
             if user is not None:
                 auth.login(request , user)
                 control=True
-                return JsonResponse({'return':'True'})   
+                return JsonResponse({'True'})   
             else:
                 control=False
-                return JsonResponse({'return':'False'})   
+                return JsonResponse({'False'})   
                 
         else:
             return render(request,'login.html')
