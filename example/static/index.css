@@ -309,7 +309,7 @@ button{
 }
 .gtlogo1{
   position:absolute;
-  margin-left:1100px;
+  margin-left:1200px;
   margin-top:30px;
   background-color:none;
   
@@ -319,7 +319,7 @@ button{
 }
 .gtlogo2{
   position:absolute;
-  margin-left:1200px;
+  margin-left:-500px;
   margin-top:30px;
   background-color:none;
   
