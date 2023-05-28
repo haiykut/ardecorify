@@ -19,7 +19,7 @@ import os
 
 # At the end of file. add these lines
 STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 
 MEDIA_URLS ='/media/'
@@ -37,19 +37,21 @@ SECRET_KEY = 'django-insecure-=cldztbc4jg&xl0!x673!*v2_=p$$eu)=7*f#d0#zs$44xx-h^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '.halil.wtf']
+ALLOWED_HOSTS = ['.vercel.app', '.halil.wtf','localhost','127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+     'example',
     'django.contrib.admin',
     'django.contrib.auth',
+  
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'example'
+   
 ]
 
 MIDDLEWARE = [
@@ -92,9 +94,10 @@ DATABASES = {       'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'verceldb',
         'USER': 'default',
-        'PASSWORD': 'CPIEMfOUK9S5',
-        'HOST': 'ep-patient-frog-192036-pooler.us-east-1.postgres.vercel-storage.com',
+        'PASSWORD': 'WanG8KshuB5f',
+        'HOST': 'ep-quiet-block-831314-pooler.us-east-1.postgres.vercel-storage.com',
         'PORT': '5432',
+       # 'OPTIONS': {'sslmode': 'require'},
     }
 }   
 
@@ -133,7 +136,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

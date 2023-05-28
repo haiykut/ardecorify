@@ -1,17 +1,98 @@
-<html>
-    <body>
-        <h1>Hello from Vercel!</h1>
-        <p>The current time is  {{time|safe}}.</p>,
-      
-               {%if user.is_authenticated%}
-                <a bar="true" href="">{{user.get_username}}</a>
-                <a bar="true" href="{%url 'logout'%}">Çıkış Yap</a>
-                <p>return: True </p>
-            {%else%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	{%load static%}
+	
+    <link rel="stylesheet" href="{% static 'index.css'%}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+	<link href="https://fonts.googleapis.com/css2?family=Foldit:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Lobster&family=Open+Sans&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+	<script>
+		window.addEventListener("wheel", function(event) {
+	  	if (event.deltaY < 0) {
+		window.scroll({ top: 0, behavior: 'smooth' });
+		} else if (event.deltaY > 0) {
+		window.scroll({ top: 9999, behavior: 'smooth' });
+		}
+		});
 
-                <a bar="true" class="for" href="/login" class="user"></i>Giriş Yap</a>
-                <a class="for" bar="true" href="/register">Kayıt Ol</a>
-                <p>return: False</p>
-            {%endif%}
-    </body>
+	</script>
+
+	
+</body>
+<label class="tag">Ardecorify</label>
+<h1 class="animate__animated animate__fadeInDown"></h1>
+<div class="gtlogo1">
+<a href="https://github.com/frknakbas65"><img src="static/github.png" width="100" height="100"></a>
+</div>
+<div class="gtlogo2">
+<a href="https://github.com/haiykut/"><img src="static/github1.png" width="100" height="100"></a>
+</div>
+<div id="logo"class="animate__animated animate__bounce">
+<img src="static/logo.png"  width="250" height="250">
+</div>
+
+	<div id="intro"class="animate__animated animate__bounce">
+		<p>Ardecorify, gelişmekte olan artırılmış gerçeklik teknolojilerini kullanarak her kesimden kullanıcının
+			mobilya ve/veya dekorasyon ürünü satın almadan önce ön fikir edinmesini sağlamaktadır.
+			Kullanıcılarımıza evlerinde iç mekan tasarımını deneyebilmelerini sağladığımız
+			Ardecorify uygulamamıza kayıt olun ve uygulamamızı indirin.
+		</p>
+	</div>
+	<div id="button"class="animate__animated animate__bounce">
+		<button Class="dwbutton">Uygulamayı İndir</button>
+	</div>
+	<div class="alert">
+
+		<a  onclick="simpleFunc()">{{message|safe}}</a>
+		<script>
+			function simpleFunc(){
+				window.scroll({ top: 9999, behavior: 'smooth' });
+		   }
+		</script>
+
+	</div>
+
+	<svg class="arrows">
+		<path class="a1" d="M0 0 L30 32 L60 0"></path>
+		<path class="a2" d="M0 20 L30 52 L60 20"></path>
+		<path class="a3" d="M0 40 L30 72 L60 40"></path>
+	</svg>
+    <form method="POST" > 
+		{%csrf_token%}
+        <h3>Kayıt Ol</h3>
+
+        <label for="username">Kullanıcı Adı </label>
+        <input type="text" placeholder="Kullanıcı Adı" name="username" id="username">
+
+        <label for="password">Şifre</label>
+        <input type="password" placeholder="Şifre" id="password" name="password">
+
+		<label for="repassword">Şifre (tekrar)</label>
+        <input type="password" placeholder="Şifre" id="repassword" name="repassword">
+        <button>Onayla</button>
+
+    </form>
+
+
+</body>
+
 </html>
+
+

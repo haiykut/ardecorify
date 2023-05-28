@@ -13,26 +13,37 @@ from django.http import JsonResponse
 def index(request):
     time = datetime.now()
     
-    return render(request, 'index.html',{'time':time})
-HttpResponse("")
-def register(request):
-
+    
     if request.method == 'POST':
 
        
             username = request.POST['username']
             password= request.POST['password']
-            
-            try:
-                user = User.objects.create_user(username = username , password = password)
-            except:
-                return render(request,'register.html')
-            user.save()
-            
-            return redirect('login')
+            repassword= request.POST['repassword']
+            message=""
+            if len(username)==0 or len(password)==0:
+                message="Kullanıcı adı veya şifre boş bırakılamaz."
+                
+            elif password!=repassword:
+                message="Şifre eşleşmedi."
+                
+            else:
+                try:
+                    user = User.objects.create_user(username = username , password = password)
+                    user.save()
+                    message="Kayıt Başarılı"
+                except:
+                    message="Kullanıcı adı zaten kullanımda."
+                
+
+            return render(request,'index.html',{"message":message})
 
     else:
-        return render(request,'register.html')
+        message="Kayıt Ol"
+        return render(request, 'index.html',{'message':message})
+HttpResponse("")
+
+
 @csrf_exempt
 def login(request):
     

@@ -1,0 +1,8 @@
+:root {
+
+    background: linear-gradient(215deg, #13124188 29.9%, #38b1ff 120%), linear-gradient(304deg, rgba(255, 101, 53, 0.4) 24.9%, #aa2743 91%), linear-gradient(-5deg, #b1c9d8 -10.1%, #2776aa 50%), linear-gradient(145deg, rgba(244, 223, 38, .3) 8.9%, #ff1b9a 60%);
+    
+    background-blend-mode: hard-light;
+  }
+  
+  
