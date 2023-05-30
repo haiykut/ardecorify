@@ -59,15 +59,9 @@ HttpResponse("")
 @csrf_exempt
 def login(request):
     
-#   if request.method =="POST":
-#        username = request.POST["username"]  
-#        password = request.POST["password"]
         if request.method == 'POST':
-            #username = request.POST["username"]  
-            #password = request.POST["password"]   
             body_unicode = request.body.decode('utf-8')
-            body = json.loads(body_unicode)
-            
+            body = json.loads(body_unicode)     
             data=body
             username = data['user']["username"]
             password = data['user']["password"]
@@ -80,9 +74,8 @@ def login(request):
  
             else:
                 control=False
-                return HttpResponse("false")
-
-                
+                return HttpResponse("false")            
+       
         else:
             return render(request,'login.html')
 
