@@ -102,7 +102,7 @@ def furniturerequest(request):
                     body_unicode = request.body.decode('utf-8')
                     body = json.loads(body_unicode)
                     usernn = request.user.username
-                    Furniture1.objects.filter(usern=usernn).update(furn=bodyq)
+                    Furniture1.objects.filter(usern=usernn).update(furn=body)
                     return HttpResponse("success")
                 except Exception as error:
                     return HttpResponse(error)
