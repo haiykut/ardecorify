@@ -92,8 +92,14 @@ def furniturerequest(request):
     if request.method == 'POST':
         usernn = None
         if request.user.is_authenticated:
-            body_unicode = request.body.decode('utf-8')
-            body = json.loads(body_unicode)
-            usernn = request.user.username
-            Furniture1.objects.update_or_create(usern=usernn,defaults={"furn":body})
-            
+            try:
+                body_unicode = request.body.decode('utf-8')
+                body = json.loads(body_unicode)
+                usernn = request.user.username
+                Furniture1.objects.update_or_create(usern=usernn,defaults={"furn":body})
+            except Exception as error:
+                return HttpResponse(error)
+        else:
+            return  HttpResponse("giris yapmadin")
+    else:
+        return HttpResponse("post metodu degil")
