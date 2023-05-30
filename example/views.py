@@ -39,7 +39,7 @@ def index(request):
   
                     user = User.objects.create_user(username = username , password = password)
                     user.save()
-                    user2= Furniture1(usern=username,furn=data,tagline=username)
+                    user2= Furniture1(usern=username,furn=data)
                     user2.save()
 
                     message="Kayıt Başarılı"
