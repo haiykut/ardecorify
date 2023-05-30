@@ -4,11 +4,9 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from example.models import Furnitures
-class FurnituresInline(admin.StackedInline):
-    model = Furnitures
-    can_delete = False
-    verbose_name_plural = "Furnitures"
+from django.contrib import admin
+from example.models import Furniture1,Furnitures
 
-admin.site.unregister(User)
-admin.site.register(User, UserAdmin)
+admin.site.register(Furniture1)
+admin.site.register(Furnitures)
 # Register your models here.
