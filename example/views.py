@@ -90,6 +90,9 @@ def logout_request(request):
     auth.logout(request)
     return redirect('index')
 
+
+
+@csrf_exempt
 def furniturerequest(request):
     try:
         if request.method == 'POST':
