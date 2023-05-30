@@ -39,7 +39,7 @@ def index(request):
   
                     user = User.objects.create_user(username = username , password = password)
                     user.save()
-                    user2= Furniture1(usern=username,furn=data)
+                    user2= Furniture1(usern=username,furn=data,tagline=username)
                     user2.save()
 
                     message="Kayıt Başarılı"
@@ -76,7 +76,7 @@ def login(request):
             if user is not None:
                 auth.login(request , user)
                 control=True
-                return HttpResponse("true")
+                return HttpResponse("true"  )
  
             else:
                 control=False
@@ -102,7 +102,7 @@ def furniturerequest(request):
                     body_unicode = request.body.decode('utf-8')
                     body = json.loads(body_unicode)
                     usernn = request.user.username
-                    Furniture1.objects.filter(usern=usernn).update(furn=body)
+                    Furniture1.objects.filter(usern=usernn).update(furn=bodyq)
                     return HttpResponse("success")
                 except Exception as error:
                     return HttpResponse(error)
