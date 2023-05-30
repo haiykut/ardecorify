@@ -87,3 +87,13 @@ def login(request):
 def logout_request(request):
     auth.logout(request)
     return redirect('index')
+
+def furniturerequest(request):
+    if request.method == 'POST':
+        usernn = None
+        if request.user.is_authenticated:
+            body_unicode = request.body.decode('utf-8')
+            body = json.loads(body_unicode)
+            usernn = request.user.username
+            Furniture1.objects.update_or_create(usern=usernn,defaults={"furn":body})
+            
