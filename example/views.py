@@ -38,10 +38,12 @@ def index(request):
                     data = json.load(f)
   
                     user = User.objects.create_user(username = username , password = password)
+                    user.save()
                     user2= Furniture1(usern=username,furn=data)
                     user2.save()
-                    user.save()
+
                     message="Kayıt Başarılı"
+                    
                 except Exception as error:
                     #message="Kullanıcı adı zaten kullanımda."
                     message=error
@@ -89,18 +91,21 @@ def logout_request(request):
     return redirect('index')
 
 def furniturerequest(request):
-    if request.method == 'POST':
-        usernn = None
-        if request.user.is_authenticated:
-            try:
-                body_unicode = request.body.decode('utf-8')
-                body = json.loads(body_unicode)
-                usernn = request.user.username
-                Furniture1.objects.filter(usern=usernn).update(furn=body)
-                return HttpResponse("success")
-            except Exception as error:
-                return HttpResponse(error)
+    try:
+        if request.method == 'POST':
+            usernn = None
+            if request.user.is_authenticated:
+                try:
+                    body_unicode = request.body.decode('utf-8')
+                    body = json.loads(body_unicode)
+                    usernn = request.user.username
+                    Furniture1.objects.filter(usern=usernn).update(furn=body)
+                    return HttpResponse("success")
+                except Exception as error:
+                    return HttpResponse(error)
+            else:
+                return  HttpResponse("giris yapmadin")
         else:
-            return  HttpResponse("giris yapmadin")
-    else:
-        return HttpResponse("post metodu degil")
+            return HttpResponse("post metodu degil")
+    except Exception as error:
+        HttpResponse(error)
