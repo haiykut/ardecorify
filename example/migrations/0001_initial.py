@@ -29,5 +29,6 @@ class Migration(migrations.Migration):
                 ('furjson', models.JSONField()),
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
+
         ),
     ]
