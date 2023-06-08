@@ -1,1 +1,1 @@
-Halilibrahim AYKUT & Furkan AKBAŞ Thesis Project ArDecorify
+Halilibrahim AYKUT & Furkan AKBAŞ, Web part of ArDecorify.
